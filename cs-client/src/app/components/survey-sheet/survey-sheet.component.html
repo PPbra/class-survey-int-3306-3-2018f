@@ -1,3 +1,23 @@
-<p>
-  survey-sheet works!
-</p>
+<div>
+  <h3 class="heading">Class name Class Id</h3>
+  <!-- ngFor -->
+  <div class="section" *ngFor="let item of [1,2,3]">
+    <span>{{item}}.* Section title</span>
+    <div class="question">
+      <span class="content"></span>
+      <span><strong>1</strong></span>
+      <span><strong>2</strong></span>
+      <span><strong>3</strong></span>
+      <span><strong>4</strong></span>
+      <span><strong>5</strong></span>
+    </div>
+    <div class="question" *ngFor="let item1 of [1,2,3,4]">
+      <span class="content">Blah blah blah blah</span>
+      <span><input type="radio" name="{{'' + item + item1}}"></span>
+      <span><input type="radio" name="{{'' + item + item1}}"></span>
+      <span><input type="radio" name="{{'' + item + item1}}"></span>
+      <span><input type="radio" name="{{'' + item + item1}}"></span>
+      <span><input type="radio" name="{{'' + item + item1}}"></span>
+    </div>
+  </div>
+</div>
