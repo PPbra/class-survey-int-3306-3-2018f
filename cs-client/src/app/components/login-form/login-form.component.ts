@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { TweenMax, Expo, Power3 } from 'gsap/TweenMax';
 
 @Component({
@@ -8,7 +9,9 @@ import { TweenMax, Expo, Power3 } from 'gsap/TweenMax';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    router: RouterModule
+  }
 
   ngOnInit() {
     let email = document.querySelector('#email') as HTMLInputElement;
