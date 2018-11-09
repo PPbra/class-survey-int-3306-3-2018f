@@ -3,6 +3,8 @@ const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
+const route = require("./route/user.route");
+
 const app = express();
 const server = require('http').Server(app);
 
@@ -12,11 +14,8 @@ const port = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, './cs-client/dist/cs-client')));
-app.use(
-  '/',
-  express.static(path.join(__dirname, './cs-client/dist/cs-client'))
-);
+app.use('/users',route);
+
 
 server.listen(port, () => {
   console.log('Listening on port ' + port);
