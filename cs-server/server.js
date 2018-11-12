@@ -10,15 +10,21 @@ const server = require('http').Server(app);
 
 const port = 5000;
 
+//connet database
+
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://127.0.0.1:27017/class-survey-database');
+
 // Cross Origin Error
 app.use(cors());
 app.use(bodyParser.json());
-
-app.use('/users',route);
+//user route
+app.use('/users', route);
 
 
 server.listen(port, () => {
-  console.log('Listening on port ' + port);
+    console.log('Listening on port ' + port);
 });
 
 module.exports = app;
