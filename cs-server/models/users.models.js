@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     name: String,
-    id: String,
+    _id: String,
     role_id: Number,
-    class: Array
+    class: Array,
+    token: String
 });
 
 const User = mongoose.model('User', userSchema, 'users');

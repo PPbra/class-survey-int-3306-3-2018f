@@ -1,4 +1,5 @@
 const User = require('../models/users.models');
+const jwt = require('../services/createJWT');
 
 module.exports = {
     test: (req, res) => {
@@ -11,5 +12,11 @@ module.exports = {
             })
         console.log(tmp);
         res.end(JSON.stringify(response));
+    },
+    login: (req, res) => {
+        res.send({
+            success: true,
+            message: "Login success!"
+        })
     }
 }
