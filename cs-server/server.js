@@ -3,7 +3,10 @@ const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-const route = require("./route/user.route");
+//import router
+const userRoute = require("./route/user.route");
+const teacherRoute = require('./route/teacher.route');
+const studentRoute = require('./route/student.route');
 
 const app = express();
 const server = require('http').Server(app);
@@ -20,7 +23,11 @@ mongoose.connect('mongodb://127.0.0.1:27017/class-survey-database');
 app.use(cors());
 app.use(bodyParser.json());
 //user route
-app.use('/users', route);
+app.use('/users', userRoute);
+//teacher route
+app.use('/teacher', teacherRoute);
+//student route
+app.use('/student', studentRoute)
 
 
 server.listen(port, () => {

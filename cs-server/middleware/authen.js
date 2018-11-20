@@ -1,22 +1,24 @@
 const User = require('../models/users.models');
-const verifyToken = require('../services/verifyToken');
+const bcrypt = require('../services/bcrypt');
 module.exports = {
     verify: async (req, res, next) => {
-
-
-        try {
-            const users = await User.find({ _id: req.body.user });
-
-            if (users.length === 1) {
-                const user = users[0];
-                const info = verifyToken.verify(user.token);
-                if (info.value._id === req.body.user && info.value.password === req.body.password) {
-                    next();
-                }
+        const user = await User.findById(req.body.username);
+        if (user) {
+            if (bcrypt.verify(req.body.password, user.password)) {
+                next();
             }
-        } catch (err) {
-            console.log(err);
-            res.status(500).send(err);
+            else {
+                res.send({
+                    success: false,
+                    message: "Err username or password!"
+                })
+            }
+        }
+        else {
+            res.send({
+                success: false,
+                message: "Err username or password!"
+            })
         }
     }
 }
