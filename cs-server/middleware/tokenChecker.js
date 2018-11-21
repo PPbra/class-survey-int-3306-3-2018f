@@ -14,7 +14,7 @@ module.exports = {
             } catch (err) {
                 res.status(401).send({
                     success: false,
-                    message: "Invalid token!"
+                    message: "Invalid token or expried!"
                 })
             }
         }

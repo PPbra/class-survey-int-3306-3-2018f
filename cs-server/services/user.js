@@ -33,5 +33,15 @@ module.exports = {
                 }
             }
         }
+    },
+    delete: async (_id) => {
+        try {
+            const result = await User.deleteOne({ _id: _id });
+            return true;
+        }
+        catch (err) {
+            console.log(err);
+            return false;
+        }
     }
 }
