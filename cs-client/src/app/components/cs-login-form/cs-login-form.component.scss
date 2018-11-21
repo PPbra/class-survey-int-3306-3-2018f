@@ -16,7 +16,7 @@ form {
   border: solid 1px #ddd;
   border-radius: 0.5em;
   font-family: 'Source Sans Pro', sans-serif;
-  background-image: url('../../vendors/img/bg.png')
+  background-image: url('../../vendors/img/bg.png');
 }
 
 form .svgContainer {
@@ -143,7 +143,6 @@ form .inputGroup1 .helper1 {
 }
 
 form .inputGroup1.focusWithText .helper {
-  /*input[type='email']:focus + .helper {*/
   transform: translate(1.4em, 2em) scale(0.65);
   opacity: 1;
 }
