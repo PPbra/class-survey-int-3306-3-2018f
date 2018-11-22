@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const userRoute = require("./route/user.route");
 const teacherRoute = require('./route/teacher.route');
 const studentRoute = require('./route/student.route');
+const adminRoute = require('./route/admin.route');
 
 const app = express();
 const server = require('http').Server(app);
@@ -25,9 +26,11 @@ app.use(bodyParser.json());
 //user route
 app.use('/users', userRoute);
 //teacher route
-app.use('/teacher', teacherRoute);
+app.use('/teachers', teacherRoute);
 //student route
-app.use('/student', studentRoute)
+app.use('/students', studentRoute)
+//admid route
+app.use('/admin', adminRoute);
 
 
 server.listen(port, () => {

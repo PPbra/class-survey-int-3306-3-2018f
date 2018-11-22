@@ -65,5 +65,38 @@ module.exports = {
                 message: "Not found user!"
             })
         }
+    },
+
+    getProfile: async (req, res) => {
+        try {
+            const { _id } = req.body;
+            const user = await User.findById(_id);
+            if (user) {
+                res.send({
+                    success: true,
+                    data: {
+                        profileDetails: {
+                            name: user.name,
+                            _id: user._id
+                        }
+                    }
+                })
+            }
+            else {
+                res.send({
+                    success: false,
+                    message: "User not found!"
+                })
+            }
+
+        } catch (err) {
+            console.log(err);
+            res.send({
+                success: false,
+                message: err
+            })
+        }
     }
+
+
 }
